@@ -13,6 +13,7 @@ public class overviewPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
+    //Page Objects
     @FindBy(css = "div.page_wrapper div:nth-child(1) div.checkout_summary_container div:nth-child(1) div.summary_info > div.summary_total_label:nth-child(7)")
     private WebElement totalPrice;
 
@@ -24,8 +25,9 @@ public class overviewPage {
 
     public overviewPage(WebDriver driver){
 
+        //New instance of the Webdriver
         this.driver = driver;
-        //New instance of the Webdriver Wait. Waits for 30 seconds
+        //Waits for 30 seconds
         this.wait = new WebDriverWait(driver, 30);
         //Initialize page objects
         PageFactory.initElements(driver, this);
@@ -36,10 +38,9 @@ public class overviewPage {
 
         //Wait for element to be visible
         this.wait.until(ExpectedConditions.visibilityOf(this.totalPrice));
-        //Enter username and password
-
+        //Stores and prints price in a String and clicks finish button
         String price = this.totalPrice.getText();
-        System.out.println(this.totalPrice.getText());
+        System.out.println(price);
         this.finishBtn.click();
 
         return price;
@@ -48,8 +49,9 @@ public class overviewPage {
     public String checkoutConfirmation (){
 
         this.wait.until(ExpectedConditions.visibilityOf(this.orderConfirmation));
+        //Stores and prints Confirmation Massage in a String
         String confirmationMsg = this.orderConfirmation.getText();
-        System.out.println(this.orderConfirmation.getText());
+        System.out.println(confirmationMsg);
 
         return confirmationMsg;
 

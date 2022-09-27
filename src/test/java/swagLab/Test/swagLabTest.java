@@ -55,7 +55,6 @@ public class swagLabTest {
 
         checkoutPage checkoutPage = new checkoutPage(driver);
         checkoutPage.addYourInfo("Mpumelelo", "Dube", "1818");
-
     }
 
     @Test(dependsOnMethods = "checkoutPageTest")
@@ -68,9 +67,9 @@ public class swagLabTest {
         Assert.assertEquals(ActualConfirmationMsg, expectedConfirmationMsg);
     }
 
-
     @AfterTest
     public void closeBrowser(){
+
         this.driver.close();
     }
 

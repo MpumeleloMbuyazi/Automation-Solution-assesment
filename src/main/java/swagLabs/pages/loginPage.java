@@ -28,9 +28,9 @@ public class loginPage  {
     private WebElement loginBtn;
 
     public loginPage(WebDriver driver){
-
+        //New instance of the Webdriver.
         this.driver = driver;
-        //New instance of the Webdriver Wait. Waits for 30 seconds
+        // Waits for 30 seconds
         this.wait = new WebDriverWait(driver, 30);
         //Initialize page objects
         PageFactory.initElements(driver, this);
